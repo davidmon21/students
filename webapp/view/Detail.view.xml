@@ -1,0 +1,171 @@
+
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	height="100%"
+    controllerName="zstud.students.controller.Detail"
+    >
+	<ObjectPageLayout id="ObjectPageLayout" showAnchorBarPopover="false" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<heading>
+					<m:Title text="{i18n>student}: {dialogModel>Name}"/>
+				</heading>
+
+				<snappedTitleOnMobile>
+					<m:Title text="{i18n>student}: {dialogModel>Name}" />
+				</snappedTitleOnMobile>
+
+				<actions>
+					<m:Button text="Back" type="Emphasized" press="onNavPress"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+            <m:VBox>
+			    <m:Title text="{i18n>rollnumber}:{dialogModel>Rollnumber}" titleStyle="H6"/>
+            </m:VBox>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="Grades">
+				<subSections>
+					<ObjectPageSubSection title="Subjects" titleUppercase="false">
+						<blocks>
+                            <m:VBox>
+                            <m:Label text="Math: "/>
+							<m:ObjectNumber number="{= parseInt(${dialogModel>Maths})}" state="{
+                            parts: [
+                                {path: 'dialogModel>Maths'}
+                            ],
+                            formatter: '.formatter.gradeColor'
+                        }"></m:ObjectNumber>
+                            <m:Label text="History: "/>
+							<m:ObjectNumber number="{= parseInt(${dialogModel>History})}" state="{
+                            parts: [
+                                {path: 'dialogModel>History'}
+                            ],
+                            formatter: '.formatter.gradeColor'
+                        }"></m:ObjectNumber>
+                            <m:Label text="Science: "/>
+							<m:ObjectNumber number="{= parseInt(${dialogModel>Science})}" 
+                            state="{
+                            parts: [
+                                {path: 'dialogModel>Science'}
+                            ],
+                            formatter: '.formatter.gradeColor'
+                        }"></m:ObjectNumber>
+                            </m:VBox>
+						</blocks>
+                    </ObjectPageSubSection>
+                    <ObjectPageSubSection title="Total" titleUppercase="false">
+						<blocks>
+							<m:ObjectNumber number="{= parseInt((parseInt(${dialogModel>History})+parseInt(${dialogModel>Science})+parseInt(${dialogModel>Maths}))/3) }" 
+                            state="{
+                        parts: [
+                            {path: 'dialogModel>History'},
+                            {path: 'dialogModel>Science'},
+                            {path: 'dialogModel>Maths'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                        }"
+                        ></m:ObjectNumber>
+                        <m:ObjectStatus text="{
+                            parts: [
+                                
+                            {path: 'dialogModel>History'},
+                            {path: 'dialogModel>Science'},
+                            {path: 'dialogModel>Maths'}
+                            ],
+                            formatter: '.formatter.gradeLetter'
+                        }"
+                        state="{
+                        parts: [
+                            {path: 'dialogModel>History'},
+                            {path: 'dialogModel>Science'},
+                            {path: 'dialogModel>Maths'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                        }"
+                        ></m:ObjectStatus>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection titleUppercase="false" title="Contact">
+				<subSections>
+					<ObjectPageSubSection title="Details" titleUppercase="false">
+						<blocks>
+                            <m:VBox>
+                            <m:Label text="Email: "/>
+                            <m:Text text="{dialogModel>EmailId}" />
+                            <m:Label text="Location: "/>
+                            <m:Text text="{dialogModel>Country},{dialogModel>State}" />
+                            <m:Label text="Phone Number: "/>
+                            <m:Text text="{
+                                parts: [
+                                    {path: 'dialogModel>Contactnumber'}
+                                ],
+                                formatter: '.formatter.phoneNumber'
+                            }"  />
+                            </m:VBox>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+            
+            <ObjectPageSection titleUppercase="false" title="General">
+				<subSections>
+					<ObjectPageSubSection title="" titleUppercase="false">
+						<blocks>
+                            <m:VBox>
+                            <m:Label text="DOB: "/>
+                            <m:Text text="{
+                            parts: [
+                                {path: 'dialogModel>Dob'}
+                            ],
+                            formatter: '.formatter.dob'
+                        }" />
+                            <m:Label text="Dept: "/>
+                            <m:Text text="{dialogModel>Dept}" />
+                            <m:Label text="Main Subject: "/>
+                            <m:Text text="{dialogModel>Mainsubject}" />
+                            </m:VBox>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+
+	</ObjectPageLayout>
+</mvc:View>
+
+
+<!-- sap.ui.jsview("sapui5.demo.mvcapp.view.Detail", {
+    getControllerName: function() {
+        return "sapui5.demo.mvcapp.controller.Detail";
+    },
+
+    createContent: function(oController) {
+        var oObjectHeader = new sap.m.ObjectHeader({
+            title: "{Name}",
+            number: "ID: {ID}",
+            attributes: [
+                new sap.m.ObjectAttribute({
+                    text: "{Address/Country}"
+                })
+            ]
+        });
+
+        var oPageDetail = new sap.m.Page({
+            title: "Supplier Detail",
+            showNavButton: true,
+            navButtonPress: [oController.onNavPress,oController],
+            content: [oObjectHeader]
+        });
+
+        return oPageDetail;
+    }
+}); -->

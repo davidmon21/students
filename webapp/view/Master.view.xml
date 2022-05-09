@@ -1,0 +1,155 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:t = "sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="zstud.students.controller.Master">
+    <Page id="_IDGenPage1" title="Student Overview">
+        <t:Table 
+        class="sapUiResponsiveMargin" 
+        width="auto" 
+        rows="{
+            path: 'localData>/StudentSet'
+        }"
+        enableBusyIndicator="true"
+        selectionMode="MultiToggle"
+        id="studentTable"
+        >
+        <t:noData>
+            <BusyIndicator id="_IDGenBusyIndicator1" class="sapUiMediumMargin" />
+        </t:noData>
+        <t:extension>
+            <OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear">
+                <Title id="title" text="{i18n>detailTitle}"/>
+                <SearchField id="_IDGenSearchField1" width="40%" search="onSearch" />
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                <Button id="_IDGenButton1" icon="sap-icon://add"
+                        tooltip="{i18n>addText}"
+                        press="onAddPress"/>
+                <Button id="_IDGenButton2" icon="sap-icon://edit"
+                        tooltip="{i18n>editText}"
+                        press="onEditPress"/>
+                <Button id="_IDGenButton3" icon="sap-icon://delete"
+                        tooltip="{i18n>deleteText}"
+                        press="onDeletePress"/>
+                <Button id="_IDGenButton5" icon="sap-icon://refresh"
+                        tooltip="{i18n>refreshText}"
+                        press="onRefreshPress"/>
+                <Button id="_IDGenButton4" icon="sap-icon://settings"
+                        tooltip="{i18n>settingsText}"
+                        press="onSettingsPress"/>
+            </OverflowToolbar>
+        </t:extension>
+        <t:columns>
+            <t:Column id="_IDGenColumn1"
+            >
+            <Label id="_IDGenLabel1" text="Details" />
+            <t:template>
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn2"
+                sortProperty="Rollnumber"
+                filterProperty="Rollnumber"
+            >
+            <Label id="_IDGenLabel2" text="{i18n>rollLabel}" />
+            <t:template>
+                <ObjectStatus id="_IDGenObjectStatus3" active="true" text="{localData>Rollnumber}" press="onListPress" />
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn3"
+                sortProperty="Name"
+                filterProperty="Name"
+            >
+            <Label id="_IDGenLabel3" text="{i18n>nameLabel}" />
+            <t:template>
+                <Text id="_IDGenText2" text="{localData>Name}" wrapping="false"/>
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn4"
+                sortProperty="Contactnumber"
+                filterProperty="Contactnumber"
+            >
+            <Label id="_IDGenLabel4" text="{i18n>numberLabel}" />
+            <t:template>
+                <Text id="_IDGenText3" 
+                    text="{
+                        parts: [
+                            {path: 'localData>Contactnumber'}
+                        ],
+                        formatter: '.formatter.phoneNumber'
+                    }" 
+                    wrapping="false"/>
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn5"
+                sortProperty="EmailId"
+                filterProperty="EmailId"
+            >
+            <Label id="_IDGenLabel5" text="{i18n>emailLabel}" />
+            <t:template>
+                <Text id="_IDGenText4" text="{localData>EmailId}" wrapping="false"/>
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn6"
+                sortProperty="Dept"
+                filterProperty="Dept"
+            >
+            <Label id="_IDGenLabel6" text="{i18n>deptLabel}" />
+            <t:template>
+                <Text id="_IDGenText5" text="{localData>Dept}" wrapping="false"/>
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn7"
+                sortProperty="Percentage"
+                filterProperty="Percentage"
+            >
+            <Label id="_IDGenLabel7" text="{i18n>overallPercentage}" />
+            <t:template>
+                <ObjectStatus id="_IDGenObjectStatus1" active="true" text="{= parseInt((parseInt(${localData>History})+parseInt(${localData>Science})+parseInt(${localData>Maths}))/3) }"
+                    press="gradePopOver" 
+                    state="{
+                        parts: [
+                            {path: 'localData>History'},
+                            {path: 'localData>Science'},
+                            {path: 'localData>Maths'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                    }" />
+            </t:template>
+            </t:Column>
+             <t:Column id="_IDGenColumn8"
+                sortProperty="Grade"
+                filterProperty="Grade"
+            >
+            <Label id="_IDGLabel8" text="{i18n>gradeLabel}" />
+            <t:template>
+                <ObjectStatus id="_IDGenObjectStatus2" active="true" text="{
+                        parts: [
+                            {path: 'localData>History'},
+                            {path: 'localData>Science'},
+                            {path: 'localData>Maths'}
+                        ],
+                        formatter: '.formatter.gradeLetter'
+                    }"
+                    state="{
+                        parts: [
+                            {path: 'localData>History'},
+                            {path: 'localData>Science'},
+                            {path: 'localData>Maths'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                    }" />
+            </t:template>
+            </t:Column>
+            <t:Column id="_IDGenColumn9"
+                sortProperty="Address"
+                filterProperty="Address"
+            >
+            <Label id="_IDGenLabel9" text="{i18n>addrLabel}" />
+            <t:template>
+                <Text id="_IDGenText6" text="{localData>Country},{localData>State}" wrapping="false"/>
+            </t:template>
+            </t:Column>
+        </t:columns>
+        </t:Table>
+    </Page>
+</mvc:View>

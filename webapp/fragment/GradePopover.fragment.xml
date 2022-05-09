@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Popover
+        id="gradePopover"
+        title="Subject Grades"
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+        placement="Bottom">
+        <VBox id="gradePopover_">
+        <ObjectStatus id="gradePopover_IDGenObjectStatus1" text="Maths: {= parseInt(${localData>Maths})}"
+        state="{
+                        parts: [
+                            {path: 'localData>Maths'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                    }"/>
+        <ObjectStatus id="gradePopover_IDGenObjectStatus2" text="Science: {= parseInt(${localData>Science})}"
+        state="{
+                        parts: [
+                            {path: 'localData>Science'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                    }"/>
+        <ObjectStatus id="gradePopover_IDGenObjectStatus3" text="History: {= parseInt(${localData>History})}"
+        state="{
+                        parts: [
+                            {path: 'localData>History'}
+                        ],
+                        formatter: '.formatter.gradeColor'
+                    }"/>
+        </VBox>
+    </Popover>
+</core:FragmentDefinition>

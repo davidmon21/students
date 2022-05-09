@@ -1,0 +1,71 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        confirm="handleSettingsDialogConfirm" cancel="handleSettingsDialogCancel" id="settingsDialog">
+        <groupItems>
+            <ViewSettingsItem id="_IDGenViewSettingsItem1" text="Gender" key="Gender" selected="true"/>
+            <ViewSettingsItem id="_IDGenViewSettingsItem2" text="Dept" key="Dept" />
+            <ViewSettingsItem id="_IDGenViewSettingsItem5" text="Main Subject" key="Mainsubject" />
+            <ViewSettingsItem id="_IDGenViewSettingsItem3" text="Country" key="Country" />
+            <ViewSettingsItem id="_IDGenViewSettingsItem4" text="State" key="State" />
+        </groupItems>
+        <filterItems>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem2" text="Select Gender" key="gender">
+                <items>
+                <ViewSettingsItem id="_IDGenViewSettingsItem13" text="Male"  key="Gender__M" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem14" text="Female" key="Gender__F" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem15" text="NA" key="Gender__NA" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem10" text="Math Grade" key="mathgrade">
+                <items>
+                <ViewSettingsItem id="_IDGenViewSettingsItem20" text="75-100"  key="Maths__75__100" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem21" text="50-75" key="Maths__50__75" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem22" text="0-50" key="Maths__0__50" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem11" text="History Grade" key="historygrade">
+                <items>
+                <ViewSettingsItem id="_IDGenViewSettingsItem23" text="75-100"  key="History__75__100" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem24" text="50-75" key="History__50__75" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem25" text="0-50" key="History__0__50" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem12" text="Science Grade" key="sciencegrade">
+                <items>
+                <ViewSettingsItem id="_IDGenViewSettingsItem26" text="75-100"  key="Science__75__100" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem27" text="50-75" key="Science__50__75" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem28" text="0-50" key="Science__0__50" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem13" text="Main Subject" key="mainsubject">
+                <items>
+                <ViewSettingsItem id="_IDGenViewSettingsItem29" text="Math"  key="Mainsubject__Maths" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem30" text="History" key="Mainsubject__History" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem31" text="Science" key="Mainsubject__Science" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem15" text="Department" key="dept">
+                <items>
+                <ViewSettingsItem id="_IDGenViewSettingsItem32" text="Math"  key="Dept__ETC" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem33" text="History" key="Dept__NSA" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem34" text="Science" key="Dept__PSA" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem35" text="Science" key="Dept__AES" />
+                <ViewSettingsItem id="_IDGenViewSettingsItem36" text="Science" key="Dept__CSS" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="_IDGenViewSettingsFilterItem1" text="Search By" key="searchBy">
+                <items>
+                    <ViewSettingsItem id="_IDGenViewSettingsItem6" text="Dept" key="Search__Dept" />
+                    <ViewSettingsItem id="_IDGenViewSettingsItem7" text="Country" key="Search__Country" />
+                    <ViewSettingsItem id="_IDGenViewSettingsItem8" text="State" key="Search__State" />
+                    <ViewSettingsItem id="_IDGenViewSettingsItem11" text="Name" key="Search__Name" />
+                    <ViewSettingsItem id="_IDGenViewSettingsItem12" text="Email ID" key="Search__EmailId" />
+                    <ViewSettingsItem id="_IDGenViewSettingsItem16" text="Contact Number" key="Search__Contactnumber" />
+                    <ViewSettingsItem id="_IDGenViewSettingsItem17" text="Roll Number" key="Search__Rollnumber" />
+                </items>
+            </ViewSettingsFilterItem>
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

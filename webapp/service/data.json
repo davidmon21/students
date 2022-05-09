@@ -1,0 +1,62 @@
+{
+    "Country": [
+        { "name": "US",
+            "states": [
+                {"name": "CA" },
+                {"name": "TX"},
+                {"name": "NY"},
+                {"name": "FL"},
+                {"name": "OH"}
+            ]
+        },
+        { "name": "UK",
+            "states": [
+                {"name": "IR" },
+                {"name": "SC"},
+                {"name": "LN"},
+                {"name": "BR"},
+                {"name": "YR"}
+            ]
+        },
+        { "name": "RS",
+            "states": [
+                {"name": "BL" },
+                {"name": "DR"},
+                {"name": "MS"},
+                {"name": "KU"},
+                {"name": "SB"}
+            ]
+        },
+        { "name": "IN",
+            "states": [
+                {"name": "MY" },
+                {"name": "SK"},
+                {"name": "VR"},
+                {"name": "GR"},
+                {"name": "HI"}
+            ]
+        },
+        { "name": "MX",
+            "states": [
+                {"name": "BA" },
+                {"name": "MC"},
+                {"name": "AR"},
+                {"name": "CA"},
+                {"name": "TI"}
+            ]
+        }
+    ],
+    "Subjects" : [
+        { "name": "Maths"},
+        {"name": "History"},
+        {"name": "Science"}
+    ],
+    "Depts": [
+        {"name": "ETC"},
+        {"name": "NSA"},
+        {"name": "PSA"},
+        {"name": "AES"},
+        {"name": "CSS"}
+    ],
+    "lookupTableCountry":{"US":"0","UK":"1","RS":"2","IN":"3","MX":"4"}
+}

@@ -1,0 +1,116 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    id="Entry"
+>
+<Dialog id="openDialog" >
+   <f:SimpleForm id="Entry_IDGenSimpleForm1"
+        editable="true"
+        	layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="4"
+			adjustLabelSpan="true"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+    >
+    <f:content>
+       
+        <Label id="Entry_IDGenLabel1" text="Name " />
+        <Input id="Name" value="{dialogModel>Name}" >
+        </Input>
+    
+        <Label id="Entry_IDGenLabel2" text="Phone Number"/>
+        <MaskInput id="Contactnumber" mask="(999) 999-9999" placeholderSymbol="_" value="{dialogModel>Contactnumber}" >
+        </MaskInput>
+        <Label id="Entry_IDGenLabel3" text="Gender" />
+        <Select width="100%" id="Gender" selectedKey="{dialogModel>Gender}" forceSelection="true">
+            <core:Item id="Entry_IDGenItem1" key="M" text="Male" />
+            <core:Item id="Entry_IDGenItem2" key="F" text="Female" />
+            <core:Item id="Entry_IDGenItem3" key="NA" text="NA" />
+        </Select>
+        <Label id="Entry_IDGenLabel4" text="Email" />
+        <Input id="EmailId" value="{dialogModel>EmailId}" 
+        valueState="{
+            parts: [
+                {path: 'dialogModel>EmailId'}
+            ],
+            formatter: '.formatter.checkEmail'
+        }"
+        >
+        </Input>
+        <Label id="Entry_IDGenLabel5" text="Department" />
+        <Select width="100%" id="Dept" items="{localData>/Depts}" selectedKey="{dialogModel>Dept}" forceSelection="true">
+            <core:Item id="Entry_IDGenItem4" key="{localData>name}" text="{localData>name}" />
+        </Select>
+        <Label id="Entry_IDGenLabel6" text="DOB" />
+        <DatePicker id="Dob" 
+        value="{
+            path: 'dialogModel>Dob',
+            type: 'sap.ui.model.type.Date',
+            
+            formatOptions: {style:'short'}
+        }" 
+        valueState="{
+            parts: [
+                {path: 'dialogModel>Dob'}
+            ],
+            formatter: '.formatter.checkDate'
+        }"
+        >
+        </DatePicker>
+        <Label id="Entry_IDGenLabel7" text="Country" />
+        <Select width="100%" id="Country" items="{localData>/Country}" selectedKey="{dialogModel>Country}" change="onChange" forceSelection="true">
+        <core:Item id="Entry_IDGenItem5" key="{localData>name}" text="{localData>name}" />
+        </Select>
+        <Select width="100%" id="State" items="{localData>/States}" selectedKey="{dialogModel>State}" forceSelection="true" >
+        <core:Item id="Entry_IDGenItem6" key="{localData>name}" text="{localData>name}" />
+        </Select>
+        <Label id="Entry_IDGenLabel8" text="Maths" />
+        <Input id="Maths" value="{
+                path: 'dialogModel>Maths'
+            }" 
+             valueStateText="Grade Must be between 0-100"
+            valueState="{= ( parseInt(${dialogModel>Maths}) > 100 || 0 > parseInt(${dialogModel>Maths})) ? 'Error' : 'Success' }"
+            >
+        </Input>
+        <Label id="Entry_IDGenLabel9" text="Science" />
+        <Input  id="Science" value="{
+                path: 'dialogModel>Science'
+            }"
+            valueStateText="Grade Must be between 0-100"
+            valueState="{= ( parseInt(${dialogModel>Science}) > 100 || 0 > parseInt(${dialogModel>Science})) ? 'Error' : 'Success' }"
+             >
+        </Input>
+        <Label id="Entry_IDGenLabel10" text="History" />
+        <Input id="History"
+            value="{
+                path: 'dialogModel>History'
+            }"
+            valueStateText="Grade Must be between 0-100"
+            valueState="{= ( parseInt(${dialogModel>History}) > 100 || 0 > parseInt(${dialogModel>History})) ? 'Error' : 'Success' }"
+        >
+        </Input>
+        <Label id="Entry_IDGenLabel11" text="Main Subject" />
+        <Select maxWidth="100%" width="100%" id="Mainsubject" forceSelection="true" autoAdjustWidth="true" selectedKey="{dialogModel>Mainsubject}" items="{ path: 'localData>/Subjects' }" >
+            <core:Item id="Entry_IDGenItem7" key="{localData>name}" text="{localData>name}" />
+        </Select>
+       
+            </f:content>
+        
+    </f:SimpleForm>
+   <endButton> <Button id="Entry_IDGenButton2" text="Cancel" press=".onCancelDialogPress" /></endButton>
+   <beginButton>
+    <Button id="Entry_IDGenButton1" text="Submit" press=".onFinishDialogPress" />     
+   </beginButton>
+
+</Dialog>
+</core:FragmentDefinition>
